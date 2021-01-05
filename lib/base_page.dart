@@ -7,7 +7,6 @@ import 'package:responsive_builder/responsive_builder.dart';
 import 'base_vm.dart';
 import 'base_widget.dart';
 
-
 /// Every Page/View should be inherited from this
 abstract class BasePage<VM extends BaseVM> extends StatefulWidget {
   BasePage({Key key}) : super(key: key);
@@ -61,27 +60,31 @@ abstract class BaseStatefulPage<VM extends BaseVM, B extends BasePage<VM>>
               onWillPop: onWillPop,
               child: SafeArea(
                 child: Scaffold(
-                  backgroundColor: scfBackgroundColor(),
+                    backgroundColor: scfBackgroundColor(),
                     key: _scaffoldKey,
                     appBar: buildAppbar(),
                     bottomNavigationBar: buildBottomNavigation(),
-                    body: _buildScafoldBody()),
+                    body: ScreenTypeLayout(
+                      mobile: _buildScafoldBody(),
+                      desktop: buildDesktopLayout(),
+                      tablet: buildTabletLayout(),
+                    )),
               ),
             );
           }),
     );
   }
 
-  Color scfBackgroundColor(){
+  Color scfBackgroundColor() {
     return Colors.white;
   }
 
-  Future<bool> onWillPop(){
+  Future<bool> onWillPop() {
     return Future.value(true);
   }
 
   /// Building a Bottom Navigation of screen
-  Widget buildBottomNavigation(){
+  Widget buildBottomNavigation() {
     return null;
   }
 
@@ -107,11 +110,19 @@ abstract class BaseStatefulPage<VM extends BaseVM, B extends BasePage<VM>>
   }
 
   Widget buildMobilePortrait(BuildContext context) {
-    return null;
+    return Container(child: Center(child: Text('Mobile'),),);
   }
 
   Widget buildMobileLandscape(BuildContext context) {
-    return null;
+    return Container(child: Center(child: Text('Mobile Landscape'),),);
+  }
+
+  Widget buildDesktopLayout() {
+    return Container(child: Center(child: Text('Desktop'),),);
+  }
+
+  Widget buildTabletLayout() {
+    return Container(child: Center(child: Text('Tablet'),),);
   }
 
   /// Declare and initialization of viewModel for the page
