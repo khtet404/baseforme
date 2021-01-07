@@ -119,15 +119,15 @@ abstract class BaseStatefulPage<VM extends BaseVM, B extends BasePage<VM>>
   }
 
   Widget buildMobileLandscape(BuildContext context) {
-    return Container(child: Center(child: Text('Mobile Landscape'),),);
+    return null;
   }
 
   Widget buildDesktopLayout() {
-    return Container(child: Center(child: Text('Desktop'),),);
+    return null;
   }
 
   Widget buildTabletLayout() {
-    return Container(child: Center(child: Text('Tablet'),),);
+    return null;
   }
 
   /// Declare and initialization of viewModel for the page
