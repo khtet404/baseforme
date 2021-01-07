@@ -64,8 +64,9 @@ abstract class BaseStatefulPage<VM extends BaseVM, B extends BasePage<VM>>
                     key: _scaffoldKey,
                     appBar: buildAppbar(),
                     bottomNavigationBar: buildBottomNavigation(),
+                    drawer: buildDrawer(),
                     body: ScreenTypeLayout(
-                      mobile: _buildScafoldBody(),
+                      mobile: _buildScaffoldBody(),
                       desktop: buildDesktopLayout(),
                       tablet: buildTabletLayout(),
                     )),
@@ -93,8 +94,12 @@ abstract class BaseStatefulPage<VM extends BaseVM, B extends BasePage<VM>>
     return null;
   }
 
-  Widget _buildScafoldBody() {
+  Widget _buildScaffoldBody() {
     return ScreenTypeLayout(mobile: _buildMobileLayout());
+  }
+
+  Widget buildDrawer(){
+    return null;
   }
 
   /*Mandatory*/
