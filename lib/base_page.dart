@@ -115,7 +115,7 @@ abstract class BaseStatefulPage<VM extends BaseVM, B extends BasePage<VM>>
   }
 
   Widget buildMobilePortrait(BuildContext context) {
-    return Container(child: Center(child: Text('Mobile'),),);
+    return null;
   }
 
   Widget buildMobileLandscape(BuildContext context) {
